@@ -29,8 +29,6 @@ export class CategoryService extends BaseService{
   }
 
   deleteCategory(id: number): Observable<any> {
-    console.log(id)
-    console.log('aaaaaaaaaaaa')
     let API_URL = `${this.apiUrl}/category/${id}`;
     return this.http.delete(API_URL, { headers: this.headers });
   }
