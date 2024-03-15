@@ -15,7 +15,17 @@ export class CategoryService extends BaseService{
 
   getCategory(): Observable<any> {
     // TODO DEFINIR URL
-    let API_URL = `${this.apiUrl}/categories/v1/vendor/jkFiqKeUhrB2stkPsWP3`;
+    let API_URL = `${this.apiUrl}/category`;
     return this.http.get(API_URL, { headers: this.headers});
   }
-}
+
+  createCategory(category: any): Observable<any> {
+    let API_URL = `${this.apiUrl}/category`;
+    return this.http.post(API_URL, category, { headers: this.headers });
+  }
+
+  updateCategory(category: any): Observable<any> {
+    let API_URL = `${this.apiUrl}/category`;
+    return this.http.put(API_URL, category, { headers: this.headers });
+  }
+} 

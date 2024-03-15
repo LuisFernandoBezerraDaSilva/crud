@@ -8,6 +8,8 @@ import { ListComponent } from './components/list/list.component';
 import {MatTableModule} from '@angular/material/table';
 import { CategoryFormComponent } from './components/category-form/category-form.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     BrowserModule,
     AppRoutingModule,
     MatTableModule,
+    HttpClientModule,
+    FormsModule 
   ],
   providers: [
     provideAnimationsAsync()

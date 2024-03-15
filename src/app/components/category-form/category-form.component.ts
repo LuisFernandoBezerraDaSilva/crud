@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { CategoryService } from '../../services/category.service';
+import { Category } from '../../modal/category';
 
 @Component({
   selector: 'app-category-form',
@@ -7,13 +9,31 @@ import { Component } from '@angular/core';
 })
 export class CategoryFormComponent {
 
-  // 1 - Crud de "categorias" com código, título e descrição;
-  // 2 - Pode ser com qualquer banco de dados;
-  // 3 - Pode ser com qualquer linguagem e framework;
-  // 4 - Mandatório ter interface web;
-  // 5 - Mandatório entregar em um repositório no github, público ou não;
-  // 6 - 1 semana de prazo;
-  // 7 - Fornecer REST API para o crud(opcional); 
-  // 8 - Testes automatizados(opcional);
+  public code: string = '';
+  public title: string = '';
+  public description: string = '';
 
+
+  public category?: Category;
+  
+  constructor(private categoryService: CategoryService) {}
+
+  submitData(){
+    let category: Category = {
+      id: 0,
+      code: this.code,
+      title: this.title,
+      description: this.description
+    }
+    this.categoryService.createCategory(category).subscribe(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  
 }

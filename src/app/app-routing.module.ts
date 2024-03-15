@@ -4,7 +4,7 @@ import { CategoryPageComponent } from './pages/category-page/category-page.compo
 
 const routes: Routes = [
   {path: 'category', component: CategoryPageComponent},
-  {path: '**', redirectTo: 'category'},
+  {path: '**', redirectTo: '/category'},
 ];
 
 @NgModule({

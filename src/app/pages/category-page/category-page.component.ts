@@ -8,11 +8,13 @@ import { Category } from '../../modal/category';
   styleUrl: './category-page.component.scss'
 })
 export class CategoryPageComponent {
-  categories: Category[] = [];
+  public categories: Category[] = [];
+  public loading: boolean = true;
 
   constructor(private categoryService: CategoryService) {
     this.categoryService.getCategory().subscribe((data: any) => {
       this.categories = data;
+      this.loading = false;
     });
   }
 

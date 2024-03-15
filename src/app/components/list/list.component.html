@@ -1,4 +1,4 @@
-<table>
+<table *ngIf="items == []">
     <thead>
       <tr>
         <th *ngFor="let column of columns">
@@ -14,3 +14,6 @@
       </tr>
     </tbody>
 </table>
+<span *ngIf="items != []">
+  Sem itens para exibir!
+</span>
