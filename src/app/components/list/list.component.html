@@ -10,7 +10,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let item of items" (click)="editItem(item)">
-          <td *ngFor="let column of columns">{{ item[column] }}</td>
+          <td *ngFor="let column of columns" matTooltip="Clique para editar">{{ item[column] }}</td>
           <td> 
             <button (click)="deleteItem(item, $event)">Excluir</button>
           </td>
