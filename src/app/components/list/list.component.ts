@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Category } from '../../modal/category';
 import { TranslateService } from '@ngx-translate/core';
@@ -13,10 +13,10 @@ export class ListComponent {
   @Input() formComponent: any;
   @Input() title: string = '';
   @Output() itemSelected: EventEmitter<any> = new EventEmitter();
-  
+
   public columns: string[] = [];
 
-  constructor(private dialog:MatDialog, private translate: TranslateService) {
+  constructor(private dialog: MatDialog, private translate: TranslateService) {
     translate.setDefaultLang('pt');
   }
 
@@ -29,7 +29,6 @@ export class ListComponent {
     this.items.forEach(item => {
       Object.keys(item).forEach(key => {
         if (key === 'id') return;
-        // adicionar tradução
         keysSet.add(key);
       });
     });
@@ -42,8 +41,7 @@ export class ListComponent {
   }
 
   public editItem(item: Category) {
-    this.openDialog(item)
-
+    this.openDialog(item);
   }
 
   private openDialog(item?: Category) {
@@ -58,8 +56,11 @@ export class ListComponent {
   }
 
   public reloadItems() {
-    this.itemSelected.emit({action: 'reloadItems'});
+    this.itemSelected.emit({ action: 'reloadItems' });
   }
 
-
+  public deleteItem(item: Category, event: Event) {
+    this.itemSelected.emit({ action: 'deleteItem', id: item.id});
+    event.stopPropagation();
   }
+}

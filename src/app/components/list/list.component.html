@@ -1,27 +1,25 @@
 <div class="container">
-  <h1> {{title}} </h1>
+  <h1>{{title}}</h1>
   <div class="table">
     <table *ngIf="items.length > 0">
-        <thead>
-          <tr>
-            <th *ngFor="let column of columns">
-              {{ column | translate }}
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let item of items" (click)="editItem(item)">
-            <td *ngFor="let column of columns">
-                {{ item[column] }}
-            </td>
-          </tr>
-        </tbody>
+      <thead>
+        <tr>
+          <th *ngFor="let column of columns">{{ column | translate }}</th>
+          <th>Ações</th> 
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of items" (click)="editItem(item)">
+          <td *ngFor="let column of columns">{{ item[column] }}</td>
+          <td> 
+            <button (click)="deleteItem(item, $event)">Excluir</button>
+          </td>
+        </tr>
+      </tbody>
     </table>
-    <span *ngIf="items.length === 0">
-      Sem itens para exibir!
-    </span>
+    <span *ngIf="items.length === 0">Sem itens para exibir!</span>
   </div>
   <div class="buttons">
-    <button (click)="createItem()">Criar Categoria</button>
+    <button class="newItem" (click)="createItem()">Criar Categoria</button>
   </div>
 </div>

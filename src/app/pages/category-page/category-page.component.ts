@@ -28,6 +28,10 @@ export class CategoryPageComponent {
   public onItemSelected(item: any) {
     if(item.action === 'reloadItems'){
       this.getCategories();
+    } if (item.action === 'deleteItem'){
+      this.categoryService.deleteCategory(item.id).subscribe((data: any) => {
+        this.getCategories();
+      });;
     }
   }
 
