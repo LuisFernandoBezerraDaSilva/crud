@@ -1,7 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { CategoryService } from '../../services/category.service';
 import { Category } from '../../modal/category';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-category-form',
@@ -20,6 +20,7 @@ export class CategoryFormComponent {
   
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any, 
+    private dialogRef: MatDialogRef<CategoryFormComponent>,
     private categoryService: CategoryService
     ) {
       this.code = data.code ? data.code : '';
@@ -39,7 +40,7 @@ export class CategoryFormComponent {
     if(!this.id){
       this.categoryService.createCategory(category).subscribe(
         (response) => {
-          console.log(response);
+          this.dialogRef.close();
         },
         (error) => {
           console.log(error);
@@ -50,7 +51,7 @@ export class CategoryFormComponent {
 
     this.categoryService.updateCategory(category).subscribe(
       (response) => {
-        console.log(response);
+        this.dialogRef.close();
       },
       (error) => {
         console.log(error);

@@ -11,6 +11,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatIconModule } from '@angular/material/icon';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -39,6 +40,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppRoutingModule,
     MatTableModule,
     MatTooltipModule,
+    MatIconModule,
     MatDialogModule,
     HttpClientModule,
     FormsModule 

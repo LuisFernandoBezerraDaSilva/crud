@@ -39,3 +39,14 @@ tr:nth-child(odd) td {
     display: block;
     margin-top: 10px;
 }
+
+.delete_icon {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .delete_icon:focus {
+    outline: none;
+  }

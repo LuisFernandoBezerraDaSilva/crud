@@ -12,7 +12,9 @@
         <tr *ngFor="let item of items" (click)="editItem(item)">
           <td *ngFor="let column of columns" matTooltip="Clique para editar">{{ item[column] }}</td>
           <td> 
-            <button (click)="deleteItem(item, $event)">Excluir</button>
+            <button class="delete_icon" (click)="deleteItem(item, $event)">
+              <mat-icon>delete</mat-icon>
+            </button>
           </td>
         </tr>
       </tbody>
