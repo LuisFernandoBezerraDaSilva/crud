@@ -10,7 +10,13 @@ import { CategoryFormComponent } from './components/category-form/category-form.
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [
@@ -20,6 +26,14 @@ import { HttpClientModule } from '@angular/common/http';
     CategoryFormComponent
   ],
   imports: [
+    TranslateModule.forRoot({
+      defaultLanguage: 'pt',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
     BrowserModule,
     AppRoutingModule,
     MatTableModule,

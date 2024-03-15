@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Category } from '../../modal/category';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-list',
@@ -15,7 +16,8 @@ export class ListComponent {
   
   public columns: string[] = [];
 
-  constructor(private dialog:MatDialog) {
+  constructor(private dialog:MatDialog, private translate: TranslateService) {
+    translate.setDefaultLang('pt');
   }
 
   ngOnInit() {
