@@ -10,6 +10,7 @@ import { Category } from '../../modal/category';
 export class ListComponent {
   @Input() items: any[] = [];
   @Input() formComponent: any;
+  @Input() title: string = '';
   @Output() itemSelected: EventEmitter<any> = new EventEmitter();
   
   public columns: string[] = [];

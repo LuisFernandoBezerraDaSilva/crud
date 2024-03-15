@@ -11,6 +11,7 @@ import { CategoryFormComponent } from '../../components/category-form/category-f
 export class CategoryPageComponent {
   public categories: Category[] = [];
   public loading: boolean = true;
+  public title  = 'Categorias';
   public formComponentToBeSent = CategoryFormComponent;
   
   constructor(private categoryService: CategoryService) {
