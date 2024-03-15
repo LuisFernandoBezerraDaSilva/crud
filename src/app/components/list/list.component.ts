@@ -26,6 +26,7 @@ export class ListComponent {
     this.items.forEach(item => {
       Object.keys(item).forEach(key => {
         if (key === 'id') return;
+        // adicionar tradução
         keysSet.add(key);
       });
     });
