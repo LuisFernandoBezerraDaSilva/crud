@@ -1,13 +1,15 @@
-<div>
-    <label for="codigo">Código:</label>
-    <input type="text" id="codigo" name="codigo" [(ngModel)]="code">
+<div class="content">
+    <div>
+        <label for="codigo">Código:</label>
+        <input type="text" id="codigo" name="codigo" [(ngModel)]="code">
+    </div>
+    <div>
+        <label for="titulo">Título:</label>
+        <input type="text" id="titulo" name="titulo" [(ngModel)]="title">
+    </div>
+    <div>
+        <label for="descricao">Descrição:</label>
+        <input type="text" id="descricao" name="descricao" [(ngModel)]="description">
+    </div>
+    <button (click)="submitData()">Salvar</button>
 </div>
-<div>
-    <label for="titulo">Título:</label>
-    <input type="text" id="titulo" name="titulo" [(ngModel)]="title">
-</div>
-<div>
-    <label for="descricao">Descrição:</label>
-    <input type="text" id="descricao" name="descricao" [(ngModel)]="description">
-</div>
-<button (click)="submitData()">Salvar</button>

@@ -1,22 +1,27 @@
-<table *ngIf="items.length > 0">
-<!-- <table> -->
-    <thead>
-      <tr>
-        <th *ngFor="let column of columns">
-            {{ column }}
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of items">
-        <td *ngFor="let column of columns">
-            {{ item[column] }}
-        </td>
-      </tr>
-    </tbody>
-</table>
-<span *ngIf="items.length === 0">
-  Sem itens para exibir!
-</span>
-
-<button (click)="openDialog()">TESTE</button>
+<div class="container">
+  <h1> Categorias</h1>
+  <div class="table">
+    <table *ngIf="items.length > 0">
+        <thead>
+          <tr>
+            <th *ngFor="let column of columns">
+                {{ column }}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of items" (click)="editItem(item)">
+            <td *ngFor="let column of columns">
+                {{ item[column] }}
+            </td>
+          </tr>
+        </tbody>
+    </table>
+    <span *ngIf="items.length === 0">
+      Sem itens para exibir!
+    </span>
+  </div>
+  <div class="buttons">
+    <button (click)="createItem()">Criar Categoria</button>
+  </div>
+</div>

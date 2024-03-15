@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Category } from '../../modal/category';
 
 @Component({
   selector: 'app-list',
@@ -30,10 +31,19 @@ export class ListComponent {
     return Array.from(keysSet);
   }
 
-  public openDialog() {
+  createItem() {
+    this.openDialog();
+  }
+
+  editItem(item: Category) {
+    this.openDialog(item)
+
+  }
+
+  public openDialog(item?: Category) {
     const dialogRef = this.dialog.open(this.formComponent, {
       width: '250px',
-      data: {}
+      data: item ? item : {}
     });
 
     dialogRef.afterClosed().subscribe(result => {
