@@ -36,7 +36,7 @@ export class CategoryFormComponent {
       description: this.description
     }
 
-    if(this.id){
+    if(!this.id){
       this.categoryService.createCategory(category).subscribe(
         (response) => {
           console.log(response);

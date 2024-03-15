@@ -11,7 +11,7 @@ th {
 
 td {
     border-bottom: 1px solid lightgray;
-    text-align: center; // Center align the content in the table cells
+    text-align: center;
 }
 
 td:hover {
@@ -33,8 +33,6 @@ tr:nth-child(even) td {
 tr:nth-child(odd) td {
     background-color: white;
 }
-
-
 
 button {
     width: 90vw;

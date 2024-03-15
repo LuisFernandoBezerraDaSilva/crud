@@ -11,14 +11,23 @@ import { CategoryFormComponent } from '../../components/category-form/category-f
 export class CategoryPageComponent {
   public categories: Category[] = [];
   public loading: boolean = true;
-
   public formComponentToBeSent = CategoryFormComponent;
   
   constructor(private categoryService: CategoryService) {
+    this.getCategories();
+  }
+
+  private getCategories(){
     this.categoryService.getCategory().subscribe((data: any) => {
       this.categories = data;
       this.loading = false;
     });
+  }
+
+  public onItemSelected(item: any) {
+    if(item.action === 'reloadItems'){
+      this.getCategories();
+    }
   }
 
 }

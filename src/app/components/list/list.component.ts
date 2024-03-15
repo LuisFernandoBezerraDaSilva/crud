@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Category } from '../../modal/category';
 
@@ -10,6 +10,8 @@ import { Category } from '../../modal/category';
 export class ListComponent {
   @Input() items: any[] = [];
   @Input() formComponent: any;
+  @Output() itemSelected: EventEmitter<any> = new EventEmitter();
+  
   public columns: string[] = [];
 
   constructor(private dialog:MatDialog) {
@@ -31,24 +33,28 @@ export class ListComponent {
     return Array.from(keysSet);
   }
 
-  createItem() {
+  public createItem() {
     this.openDialog();
   }
 
-  editItem(item: Category) {
+  public editItem(item: Category) {
     this.openDialog(item)
 
   }
 
-  public openDialog(item?: Category) {
+  private openDialog(item?: Category) {
     const dialogRef = this.dialog.open(this.formComponent, {
       width: '250px',
       data: item ? item : {}
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('O diálogo foi fechado');
+      this.reloadItems();
     });
+  }
+
+  public reloadItems() {
+    this.itemSelected.emit({action: 'reloadItems'});
   }
 
 
