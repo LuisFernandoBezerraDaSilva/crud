@@ -9,6 +9,7 @@ import {MatTableModule} from '@angular/material/table';
 import { CategoryFormComponent } from './components/category-form/category-form.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { FormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -22,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     MatTableModule,
+    MatDialogModule,
     HttpClientModule,
     FormsModule 
   ],

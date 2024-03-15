@@ -1,4 +1,5 @@
-<table *ngIf="items == []">
+<table *ngIf="items.length > 0">
+<!-- <table> -->
     <thead>
       <tr>
         <th *ngFor="let column of columns">
@@ -14,6 +15,8 @@
       </tr>
     </tbody>
 </table>
-<span *ngIf="items != []">
+<span *ngIf="items.length === 0">
   Sem itens para exibir!
 </span>
+
+<button (click)="openDialog()">TESTE</button>
